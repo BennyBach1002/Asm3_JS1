@@ -5,19 +5,13 @@ const computerPlay = () => {
     const item = arr[randomIndex]
     return item
 }
+botSelection = computerPlay()
 
-const playRound = (playerSelection, botSelection) => {
-    botSelection = computerPlay()
+const playRound = (playerSelection = "", botSelection) => {
     playerSelection = playerSelection.toLowerCase()
     if(playerSelection === botSelection){
-        return 'Tie'
+        return `Tie the bot also choose ${botSelection}`
     }
-    // else if(playerSelection == 'rock'){
-    //     return `rock vs ${botSelection}`
-    // }
-    // else if(playerSelection == 'paper'){
-    //     return `paper vs ${botSelection}`
-    // }
     else if(playerSelection === 'rock'){
         if(botSelection === 'paper'){
             return 'You lose! rock lost to paper!';
@@ -39,6 +33,13 @@ const playRound = (playerSelection, botSelection) => {
             return 'You won! paper beats rock!';;
         }
     }
-    let Result = `You Lose! ${playerSelection} beat ${botSelection}`
-    return Result
+    return "Please choose between rock,paper,scissor"
+}
+
+const game = () => {
+    for (let i = 0; i< 2; i++) {
+        let eachPlayerSelection = prompt("Please choose your next move (Rock,Paper,Scissor)",  "Rock")
+        let eachBotSelection = computerPlay()
+        console.log(playRound(playerSelection = eachPlayerSelection, botSelection = eachBotSelection))
+    }
 }
