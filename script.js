@@ -3,7 +3,6 @@ const choices = ["rock", "paper", "scissor"];
 
 // Computer choices are randomly selected from the
 const computerPlay = () => {
-<<<<<<< HEAD
     const arr = ['rock', 'paper', 'scissor'];
     const randomIndex = Math.floor(Math.random() * arr.length)
     const item = arr[randomIndex]
@@ -54,7 +53,6 @@ const playRound = (playerSelection, botSelection) => {
       return "You lose! rock lost to paper!";
     } else {
       return "You won! rock beat scissor!";
->>>>>>> 8b1d41ec03a1a870fcdc0282088ed69e8b75c420
     }
   } 
   else if (playerSelection == "scissor") {
@@ -63,54 +61,6 @@ const playRound = (playerSelection, botSelection) => {
     } else {
       return "You won! scissor beats paper!";
     }
-<<<<<<< HEAD
-    else if(playerSelection == 'scissor'){
-        if(botSelection == 'rock'){
-            return `You lose! scissor lost to rocks! `;
-        }else{
-            return `You won! scissor beats paper!`;
-        }
-    }
-    else if(playerSelection == 'paper'){
-        if(botSelection == 'scissor'){
-            return 'You lose! paper lost to scissor!';
-        }else{
-            return 'You won! paper beats rock!';
-        }
-    }
-    return "Please choose between rock,paper,scissor"
-}
-const playerSelection = () =>{
-    return prompt("Please choose your next move (Rock,Paper,Scissor)")
-}
-
-const game = () => { 
-    for (let i = 0; i< 5; i++) {
-        let eachPlayerSelection = playerSelection()
-        let eachBotSelection = computerPlay()
-        console.log(playRound(eachPlayerSelection, eachBotSelection))
-    }
-}
-
-const calculate = () => {
-    let botScore = 0;    
-    let playerScore = 0; 
-    let op = `You won ! scissor beats paper!`
-    let po = `You lost ! scissor beats paper!`
-    let arr = op.split(" ")
-    for (let i = 0; i< op.length; i++) {
-        let eachWord = arr[i]
-        console.log(eachWord);
-        if (eachWord === "won"){
-            playerScore++;
-        } else {
-            botScore++;
-        }
-        
-    }
-    console.log(playerScore);
-}
-=======
   } 
   else if (playerSelection == "paper") {
     if (botSelection == "scissor") {
@@ -152,5 +102,4 @@ const game = () => {
     } else if (computerScore > playerScore) {
         return "You have lost!"
     } return "You have won!"
-};
->>>>>>> 8b1d41ec03a1a870fcdc0282088ed69e8b75c420
+}
