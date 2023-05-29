@@ -5,10 +5,12 @@ const computerPlay = () => {
     const item = arr[randomIndex]
     return item
 }
-botSelection = computerPlay()
 
-const playRound = (playerSelection = "", botSelection) => {
+
+const playRound = (playerSelection, botSelection) => {
     playerSelection = playerSelection.toLowerCase()
+    botSelection = computerPlay()
+    
     if(playerSelection === botSelection){
         return `Tie the bot also choose ${botSelection}`
     }
@@ -21,25 +23,47 @@ const playRound = (playerSelection = "", botSelection) => {
     }
     else if(playerSelection == 'scissor'){
         if(botSelection == 'rock'){
-            return `You lose! scissor lost to ${botSelection}! `;
+            return `You lose! scissor lost to rocks! `;
         }else{
-            return 'You won! scissor beats paper!';;
+            return `You won! scissor beats paper!`;
         }
     }
     else if(playerSelection == 'paper'){
         if(botSelection == 'scissor'){
             return 'You lose! paper lost to scissor!';
         }else{
-            return 'You won! paper beats rock!';;
+            return 'You won! paper beats rock!';
         }
     }
     return "Please choose between rock,paper,scissor"
 }
+const playerSelection = () =>{
+    return prompt("Please choose your next move (Rock,Paper,Scissor)")
+}
 
-const game = () => {
-    for (let i = 0; i< 2; i++) {
-        let eachPlayerSelection = prompt("Please choose your next move (Rock,Paper,Scissor)",  "Rock")
+const game = () => { 
+    for (let i = 0; i< 5; i++) {
+        let eachPlayerSelection = playerSelection()
         let eachBotSelection = computerPlay()
-        console.log(playRound(playerSelection = eachPlayerSelection, botSelection = eachBotSelection))
+        console.log(playRound(eachPlayerSelection, eachBotSelection))
     }
+}
+
+const calculate = () => {
+    let botScore = 0;    
+    let playerScore = 0; 
+    let op = `You won ! scissor beats paper!`
+    let po = `You lost ! scissor beats paper!`
+    let arr = op.split(" ")
+    for (let i = 0; i< op.length; i++) {
+        let eachWord = arr[i]
+        console.log(eachWord);
+        if (eachWord === "won"){
+            playerScore++;
+        } else {
+            botScore++;
+        }
+        
+    }
+    console.log(playerScore);
 }
